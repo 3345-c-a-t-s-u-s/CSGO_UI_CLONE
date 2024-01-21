@@ -5,7 +5,7 @@ local LEAK = {
 }
 
 local binfunction = function()
-	
+
 end
 
 local LocalPlayer = game:GetService('Players').LocalPlayer;
@@ -81,7 +81,7 @@ function LEAK:NewWindow(WindowName:string,WindowsLogo:string,UI_SIZE:UDim2)
 	UIFrame.ClipsDescendants = true
 	UIFrame.Position = UDim2.new(1.5, 0, 0.5, 0)
 	UIFrame.Size = UI_SIZE
-	
+
 	TweenService:Create(UIFrame,TweenInfo.new(0.4),{Position = UDim2.new(0.5, 0, 0.5, 0)}):Play()
 	UICorner.CornerRadius = UDim.new(0, 1)
 	UICorner.Parent = UIFrame
@@ -195,7 +195,7 @@ function LEAK:NewWindow(WindowName:string,WindowsLogo:string,UI_SIZE:UDim2)
 
 	UICorner_5.CornerRadius = UDim.new(0, 1)
 	UICorner_5.Parent = TabFrames
-	
+
 	function WindowsFunctions:NewTab(TabName:string)
 		local TabFunctions = {}
 		local TabButon = Instance.new("Frame")
@@ -213,7 +213,7 @@ function LEAK:NewWindow(WindowName:string,WindowsLogo:string,UI_SIZE:UDim2)
 		TabButon.BorderSizePixel = 0
 		TabButon.Size = UDim2.new(0,0,0,0)
 		TabButon.ZIndex = 7
-		
+
 		TweenService:Create(TabButon,TweenInfo.new(0.65 + (#WindowsFunctions.Tabs / 10),Enum.EasingStyle.Back),{Size = UDim2.new(0.980000019, 0, 0.5, 0)}):Play()
 		UIAspectRatioConstraint.Parent = TabButon
 		UIAspectRatioConstraint.AspectRatio = 5
@@ -232,7 +232,7 @@ function LEAK:NewWindow(WindowName:string,WindowsLogo:string,UI_SIZE:UDim2)
 		Hightlight.BorderSizePixel = 0
 		Hightlight.Size = UDim2.new(0, 2, 1, 0)
 		Hightlight.ZIndex = 7
-		
+
 		UICorner_2.CornerRadius = UDim.new(0, 1)
 		UICorner_2.Parent = Hightlight
 
@@ -253,13 +253,13 @@ function LEAK:NewWindow(WindowName:string,WindowsLogo:string,UI_SIZE:UDim2)
 		Label.TextSize = 14.000
 		Label.TextWrapped = true
 		Label.TextXAlignment = Enum.TextXAlignment.Left
-		
+
 		local TabFrame = Instance.new("Frame")
 		local Left = Instance.new("ScrollingFrame")
 		local UIListLayout = Instance.new("UIListLayout")
 		local Right = Instance.new("ScrollingFrame")
 		local UIListLayout_2 = Instance.new("UIListLayout")
-		
+
 		scrolling_connect(Right) scrolling_connect(Left)
 		TabFrame.Name = "TabFrame"
 		TabFrame.Parent = TabFrames
@@ -310,7 +310,7 @@ function LEAK:NewWindow(WindowName:string,WindowsLogo:string,UI_SIZE:UDim2)
 		UIListLayout_2.HorizontalAlignment = Enum.HorizontalAlignment.Center
 		UIListLayout_2.SortOrder = Enum.SortOrder.LayoutOrder
 		UIListLayout_2.Padding = UDim.new(0, 10)
-		
+
 		local CallBackrn = false
 		local function CallBack(val)
 			if val then
@@ -323,7 +323,7 @@ function LEAK:NewWindow(WindowName:string,WindowsLogo:string,UI_SIZE:UDim2)
 				TweenService:Create(Label,TweenInfo.new(0.3),{TextTransparency = 0.25}):Play()
 			end
 		end
-		
+
 		if #WindowsFunctions.Tabs == 0 then
 			CallBackrn = true
 			CallBack(CallBackrn)
@@ -331,7 +331,7 @@ function LEAK:NewWindow(WindowName:string,WindowsLogo:string,UI_SIZE:UDim2)
 			CallBackrn = false
 			CallBack(CallBackrn)
 		end
-		
+
 		table.insert(WindowsFunctions.Tabs,{TabFrame,CallBack})
 		cretate_button(TabButon).MouseButton1Click:Connect(function() 
 			for i,v in ipairs(WindowsFunctions.Tabs) do
@@ -342,16 +342,16 @@ function LEAK:NewWindow(WindowName:string,WindowsLogo:string,UI_SIZE:UDim2)
 				end
 			end
 		end)
-		
+
 		function TabFunctions:Rename(t)
 			Label.Text = t or "Tab "..tostring(#WindowsFunctions.Tabs)
 		end
-		
+
 		function TabFunctions:NewSection(SectionNameT:string,Tab:string)
 			Tab = tostring(Tab or nil)
 			local SectionFunctions = {}
 			local Ful = (Tab:lower() == 'left' and Left) or (Tab:lower() == 'right' and Right)
-			
+
 			local Section = Instance.new("Frame")
 			local UIStroke = Instance.new("UIStroke")
 			local UICorner = Instance.new("UICorner")
@@ -368,9 +368,9 @@ function LEAK:NewWindow(WindowName:string,WindowsLogo:string,UI_SIZE:UDim2)
 			Section.BorderSizePixel = 0
 			Section.Size = UDim2.new(0.98, 0, 0, 1)
 			Section.ZIndex = 14
-			
+
 			TweenService:Create(Section,TweenInfo.new(0.75),{Size = UDim2.new(0.944999993, 0, 0, 35)}):Play()
-			
+
 			UIStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
 			UIStroke.Parent = Section
 
@@ -428,39 +428,39 @@ function LEAK:NewWindow(WindowName:string,WindowsLogo:string,UI_SIZE:UDim2)
 			SectionCollection.Size = UDim2.new(1, 0, 0.949999988, 0)
 			SectionCollection.ZIndex = 14
 			SectionCollection.ClipsDescendants = true
-			
+
 			UIListLayout.Parent = SectionCollection
 			UIListLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
 			UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
 			UIListLayout.Padding = UDim.new(0, 3)
-			
+
 			local default = 35
-				
+
 			local function Update()
 				local g = default
-				
+
 				task.wait()
-				
+
 				for i,v in ipairs(SectionCollection:GetChildren()) do
 					if v:IsA('Frame') then
 						g += v.AbsoluteSize.Y
 					end
 				end
-				
-				
+
+
 				TweenService:Create(Section,TweenInfo.new(0.4),{Size = UDim2.new(0.98, 0, 0, g)}):Play()
 			end
-			
+
 			Update()
-			
+
 			SectionCollection.ChildAdded:Connect(function()
 				task.wait()
 				Update()
 			end)
-			
+
 			function SectionFunctions:NewLabel(LabenName)
 				local Functions = {}
-				
+
 
 				local Label = Instance.new("Frame")
 				local UIAspectRatioConstraint = Instance.new("UIAspectRatioConstraint")
@@ -495,27 +495,27 @@ function LEAK:NewWindow(WindowName:string,WindowsLogo:string,UI_SIZE:UDim2)
 				TextLabel.TextSize = 14.000
 				TextLabel.TextWrapped = true
 				TextLabel.TextXAlignment = Enum.TextXAlignment.Left
-				
+
 				function Functions:Text(tr)
 					TextLabel.Text = tostring(tr)
 				end
-				
+
 				function Functions:Destroy()
 					Label:Destroy()
 					Update()
 				end
-				
+
 				task.spawn(function()
 					task.wait(0.1)
 					Update()
 				end)
-				
+
 				return Functions
 			end
-			
+
 			function SectionFunctions:NewToggle(ToggleName:string,default:boolean,callback)
 				callback = callback or binfunction
-				
+
 				local Toggle = Instance.new("Frame")
 				local UIAspectRatioConstraint = Instance.new("UIAspectRatioConstraint")
 				local TextLabel = Instance.new("TextLabel")
@@ -592,7 +592,7 @@ function LEAK:NewWindow(WindowName:string,WindowsLogo:string,UI_SIZE:UDim2)
 				ImageLabel.Size = UDim2.new(1, 0, 1, 0)
 				ImageLabel.ZIndex = 18
 				ImageLabel.Image = "rbxassetid://4576475446"
-				
+
 				local function ToggleUIV(val)
 					if val then
 						TweenService:Create(SystemUI,TweenInfo.new(0.1),{Size = UDim2.new(1,0,1,0)}):Play()
@@ -602,41 +602,41 @@ function LEAK:NewWindow(WindowName:string,WindowsLogo:string,UI_SIZE:UDim2)
 						TweenService:Create(TextLabel,TweenInfo.new(0.4),{TextTransparency = 0.25}):Play()
 					end
 				end
-				
+
 				ToggleUIV(default)
-				
+
 				cretate_button(Toggle).MouseButton1Click:Connect(function()
 					default = not default
 					Update()
 					ToggleUIV(default)
 					callback(default)
-					
+
 				end)
-				
+
 				task.spawn(function()
 					task.wait(0.1)
 					Update()
 				end)
-				
+
 				local ToggleFunxtion = {}
-				
+
 				function ToggleFunxtion:Value(d,...)
 					default = d
 					ToggleUIV(default)
 					callback(...)
 				end
-				
+
 				function ToggleFunxtion:Text(d)
 					TextLabel.Text = tostring(d)
 				end
-				
+
 				function ToggleFunxtion:GetValue(d)
 					return default
 				end
-				
+
 				return ToggleFunxtion
 			end
-			
+
 			function SectionFunctions:NewButton(ButtonBame,calback)
 				calback = calback or binfunction
 
@@ -676,7 +676,7 @@ function LEAK:NewWindow(WindowName:string,WindowsLogo:string,UI_SIZE:UDim2)
 				TextLabel.TextWrapped = true
 				TextLabel.TextXAlignment = Enum.TextXAlignment.Left
 				TextLabel.TextTransparency = 0.25
-				
+
 				UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(22, 22, 22)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(18, 18, 18))}
 				UIGradient.Rotation = 90
 				UIGradient.Parent = Button
@@ -686,37 +686,37 @@ function LEAK:NewWindow(WindowName:string,WindowsLogo:string,UI_SIZE:UDim2)
 
 				UICorner.CornerRadius = UDim.new(0, 1)
 				UICorner.Parent = Button
-				
+
 				cretate_button(Button).MouseButton1Click:Connect(function()
 					Update()
 					calback()
 				end)
-				
+
 				TextLabel.MouseEnter:Connect(function()
 					TweenService:Create(TextLabel,TweenInfo.new(0.1),{TextTransparency = 0,TextColor3 = LEAK.MainColor}):Play()
 				end)
-				
+
 				TextLabel.MouseLeave:Connect(function()
 					TweenService:Create(TextLabel,TweenInfo.new(0.1),{TextTransparency = 0.25,TextColor3 = Color3.fromRGB(255,255,255)}):Play()
 				end)
-				
+
 				local Funcxtion = {}
-				
+
 				function Funcxtion:Fire(...)
 					return calback(...)
 				end
-				
+
 				function Funcxtion:Text(t)
 					TextLabel.Text = t
 				end
-				
+
 				task.spawn(function()
 					task.wait(0.1)
 					Update()
 				end)
 				return Funcxtion
 			end
-			
+
 			function SectionFunctions:NewKeybind(LabelT:string,default:Enum.KeyCode,callback)
 				callback =callback or binfunction
 				local Keybind = Instance.new("Frame")
@@ -791,18 +791,18 @@ function LEAK:NewWindow(WindowName:string,WindowsLogo:string,UI_SIZE:UDim2)
 				TextLabel.TextSize = 14.000
 				TextLabel.TextWrapped = true
 				TextLabel.TextXAlignment = Enum.TextXAlignment.Left
-				
+
 				task.spawn(function()
 					task.wait(0.1)
 					Update()
 				end)
-				
+
 				local function UpdateText()
 					local size = TextService:GetTextSize(KeyName.Text,KeyName.TextSize,KeyName.Font,Vector2.new(math.huge,math.huge))
 					TweenService:Create(Frame,TweenInfo.new(0.4),{Size=UDim2.new(0,size.X + 1,0.65,0)}):Play()
-					
+
 				end
-				
+
 				local key = default
 				UpdateText()
 				local isBind = false
@@ -835,17 +835,17 @@ function LEAK:NewWindow(WindowName:string,WindowsLogo:string,UI_SIZE:UDim2)
 				end
 				cretate_button(TextLabel).MouseButton1Click:Connect(Dex)
 				cretate_button(Frame).MouseButton1Click:Connect(Dex)
-				
+
 				local Funcxtion = {}
 
 				function Funcxtion:Fire(...)
 					return callback(...)
 				end
-				
+
 				function Funcxtion:GetValue(...)
 					return key
 				end
-				
+
 				function Funcxtion:Text(t)
 					TextLabel.Text = t
 				end
@@ -854,16 +854,16 @@ function LEAK:NewWindow(WindowName:string,WindowsLogo:string,UI_SIZE:UDim2)
 					task.wait(0.1)
 					Update()
 				end)
-				
+
 				return Funcxtion
 			end
-			
+
 			function SectionFunctions:NewSlider(SliderName,min,max,default,callback)
 				min = min or 5
 				max = max or 10
 				default = default or min
 				callback = callback or binfunction
-				
+
 				local Slider = Instance.new("Frame")
 				local UIAspectRatioConstraint = Instance.new("UIAspectRatioConstraint")
 				local TextLabel = Instance.new("TextLabel")
@@ -964,19 +964,19 @@ function LEAK:NewWindow(WindowName:string,WindowsLogo:string,UI_SIZE:UDim2)
 				Value.TextScaled = true
 				Value.TextSize = 14.000
 				Value.TextWrapped = true
-				
+
 				local function getsize(d)
 					local v = (d / max)
 					return v
 				end
-				
+
 				SliderBlock.Size = UDim2.new(getsize(default), 0, 0.75, 0)
-				
+
 				local last = default
 				local danger = false
-				
+
 				Update()
-				
+
 				local function update(Input)
 					local SizeScale = math.clamp((((Input.Position.X) - SliderFrame.AbsolutePosition.X) / SliderFrame.AbsoluteSize.X), 0, 1)
 					local Valuea = math.floor(((max - min) * SizeScale) + min)
@@ -1010,7 +1010,7 @@ function LEAK:NewWindow(WindowName:string,WindowsLogo:string,UI_SIZE:UDim2)
 						end
 					end
 				end)
-				
+
 				local Funcxtion = {}
 
 				function Funcxtion:Fire(...)
@@ -1032,7 +1032,7 @@ function LEAK:NewWindow(WindowName:string,WindowsLogo:string,UI_SIZE:UDim2)
 
 				return Funcxtion
 			end
-			
+
 			function SectionFunctions:NewDropdown(DropdownName:string,data:{string},calback)
 				data = data or {}
 				calback = calback or binfunction
@@ -1078,7 +1078,7 @@ function LEAK:NewWindow(WindowName:string,WindowsLogo:string,UI_SIZE:UDim2)
 				TextLabel.TextWrapped = true
 				TextLabel.TextXAlignment = Enum.TextXAlignment.Left
 				local gsub = TextLabel
-				
+
 				DropFrame.Name = "DropFrame"
 				DropFrame.Parent = Dropdown
 				DropFrame.AnchorPoint = Vector2.new(0.5, 0.5)
@@ -1132,16 +1132,16 @@ function LEAK:NewWindow(WindowName:string,WindowsLogo:string,UI_SIZE:UDim2)
 				TextLabel_2.TextScaled = true
 				TextLabel_2.TextSize = 14.000
 				TextLabel_2.TextWrapped = true
-				
+
 				local positionlist = {
 					UDim2.new(0.732, 0,0.175, 0),
-					UDim2.new(0.732, -633,0.175, 2),
-					UDim2.new(0.732, -381,0.175, -2),
-					UDim2.new(0.732, -154,0.175, -4),
-					UDim2.new(0.732, -316,0.175, -89),
-					UDim2.new(0.732, -312,0.175, 216),
-					UDim2.new(0.732, -623,0.175, 209),
-					UDim2.new(0.732, -7,0.175, 227)
+					UDim2.new(0.3, 0,0.175, 0),
+					UDim2.new(0.1, 0,0.175, 0),
+					UDim2.new(0.5, 0,0.175, 0),
+					UDim2.new(0.6, 0,0.175, 0),
+					UDim2.new(0.8, 0,0.175, 0),
+					UDim2.new(0.5, 0,0.175, 0),
+					UDim2.new(0.6, 0,0.175, 0)
 				}
 
 				local DropDownFrameItems = Instance.new("Frame")
@@ -1164,7 +1164,7 @@ function LEAK:NewWindow(WindowName:string,WindowsLogo:string,UI_SIZE:UDim2)
 				DropDownFrameItems.Size = UDim2.new(0.200000003, 0, 0.5, 0)
 				DropDownFrameItems.ZIndex = 33
 				DropDownFrameItems.ClipsDescendants = true
-				
+
 				DropDownFrameItems:GetPropertyChangedSignal('BackgroundTransparency'):Connect(function()
 					if DropDownFrameItems.BackgroundTransparency <= 0.98 then
 						DropDownFrameItems.Visible = true
@@ -1172,7 +1172,7 @@ function LEAK:NewWindow(WindowName:string,WindowsLogo:string,UI_SIZE:UDim2)
 						DropDownFrameItems.Visible = false
 					end
 				end)
-				
+
 				local function SizeToggle(va)
 					if va then
 						TweenService:Create(gsub,TweenInfo.new(0.1),{TextTransparency = 0}):Play()
@@ -1190,9 +1190,9 @@ function LEAK:NewWindow(WindowName:string,WindowsLogo:string,UI_SIZE:UDim2)
 						TweenService:Create(ScrollingFrame,TweenInfo.new(0.1),{Position = UDim2.new(0, 0,1.5, 0)}):Play()
 					end
 				end
-				
-				
-				
+
+
+
 				UICorner.CornerRadius = UDim.new(0, 1)
 				UICorner.Parent = DropDownFrameItems
 
@@ -1227,7 +1227,7 @@ function LEAK:NewWindow(WindowName:string,WindowsLogo:string,UI_SIZE:UDim2)
 				TextLabel.TextWrapped = true
 				TextLabel.TextXAlignment = Enum.TextXAlignment.Left
 				TextLabel.Text = DropdownName or "TextLabel"
-				
+
 				ScrollingFrame.Parent = DropDownFrameItems
 				ScrollingFrame.Active = true
 				ScrollingFrame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -1280,20 +1280,20 @@ function LEAK:NewWindow(WindowName:string,WindowsLogo:string,UI_SIZE:UDim2)
 						end
 					end)
 				end)
-				
+
 				local valuenow = data[1] or nil
 				local UIHasToggle = false
 				SizeToggle(UIHasToggle)
-				
+
 				local function Refresh(new)
 					data = new or data
-					
+
 					for i,v in ipairs(DropDownFrameItems:GetChildren()) do
 						if v:IsA('TextLabel') then
 							v:Destroy()
 						end
 					end
-					
+
 					for i,v in ipairs(data) do
 
 						local TextLabel = Instance.new("TextLabel")
@@ -1316,15 +1316,15 @@ function LEAK:NewWindow(WindowName:string,WindowsLogo:string,UI_SIZE:UDim2)
 						TextLabel.TextSize = 14.000
 						TextLabel.TextWrapped = true
 						TextLabel.Text = tostring(v)
-						
+
 						TextLabel.MouseEnter:Connect(function()
 							TweenService:Create(TextLabel,TweenInfo.new(0.1),{TextColor3 = LEAK.MainColor}):Play()
 						end)
-						
+
 						TextLabel.MouseLeave:Connect(function()
 							TweenService:Create(TextLabel,TweenInfo.new(0.1),{TextColor3 = Color3.fromRGB(255, 255, 255)}):Play()
 						end)
-						
+
 						UIAspectRatioConstraint.Parent = TextLabel
 						UIAspectRatioConstraint.AspectRatio = 15.000
 						UIAspectRatioConstraint.AspectType = Enum.AspectType.ScaleWithParentSize
@@ -1338,19 +1338,19 @@ function LEAK:NewWindow(WindowName:string,WindowsLogo:string,UI_SIZE:UDim2)
 						end)
 					end
 				end
-							
+
 				cretate_button(DropFrame).MouseButton1Click:Connect(function()
 					UIHasToggle = not UIHasToggle
 					Update()
 					SizeToggle(UIHasToggle)
 				end)
-				
-				
-				
+
+
+
 				Update()
-				
+
 				Refresh()
-				
+
 				local Funcxtion = {}
 
 				function Funcxtion:Fire(...)
@@ -1372,32 +1372,32 @@ function LEAK:NewWindow(WindowName:string,WindowsLogo:string,UI_SIZE:UDim2)
 
 				return Funcxtion
 			end
-			
+
 			function SectionFunctions:UpdateSize(...)
 				return Update(...)
 			end
-			
+
 			Update()
-			
+
 			return SectionFunctions
 		end
-		
+
 		return TabFunctions
 	end
-	
+
 	function WindowsFunctions:ChangeLogo(id:string,typeimage:Enum.ScaleType|nil)
 		LogoHub.Image = id or "rbxassetid://6396719811"
 		LogoHub.ScaleType = typeimage or Enum.ScaleType.Crop
 	end
-	
+
 	function WindowsFunctions:GetScreen()
 		return Index	
 	end
-	
+
 	function WindowsFunctions:Destroy()
 		Index:Destroy()
 	end
-	
+
 	local dragToggle = nil
 	local dragSpeed = 0.05
 	local dragStart = nil
@@ -1430,7 +1430,7 @@ function LEAK:NewWindow(WindowName:string,WindowsLogo:string,UI_SIZE:UDim2)
 			end
 		end
 	end)
-	
+
 	return WindowsFunctions
 end
 
